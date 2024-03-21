@@ -1,8 +1,10 @@
 package com.igroup.bandesal.core.entity.bandesal;
 
+import com.igroup.bandesal.core.util.RegularExpressions;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
 @Data
@@ -16,6 +18,7 @@ public class Reader implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Basic
-    @Column(name = "name")
+    @Pattern(regexp = RegularExpressions.regExpNombre)
+    @Column(name = "name",length = 8)
     private String name;
 }
