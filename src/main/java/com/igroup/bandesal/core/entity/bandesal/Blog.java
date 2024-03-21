@@ -1,8 +1,10 @@
 package com.igroup.bandesal.core.entity.bandesal;
 
+import com.igroup.bandesal.core.util.RegularExpressions;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
 @Data
@@ -16,9 +18,11 @@ public class Blog implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Basic
-    @Column(name = "title")
+    @Pattern(regexp = RegularExpressions.regExpNombre)
+    @Column(name = "title",length = 50)
     private String title;
     @Basic
-    @Column(name = "description")
+    @Pattern(regexp = RegularExpressions.regExpDescripcion)
+    @Column(name = "description",length = 4000)
     private String description;
 }
