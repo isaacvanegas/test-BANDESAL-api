@@ -2,6 +2,7 @@ package com.igroup.bandesal.core.service.web;
 
 import com.igroup.bandesal.core.dto.ReaderDto;
 import com.igroup.bandesal.core.dto.request.bandesal.ReaderRequestDto;
+import com.igroup.bandesal.core.dto.response.bandesal.ReaderResponseDto;
 import com.igroup.bandesal.core.entity.ContextData;
 import com.igroup.bandesal.core.operation.OperationsManager;
 import com.igroup.bandesal.core.request.bandesal.ReadRequestRQ;
@@ -11,6 +12,7 @@ import com.igroup.bandesal.core.util.logger.OperationAccessLogger;
 import com.igroup.bandesal.core.util.logger.TimesLogger;
 import io.quarkus.vertx.http.Compressed;
 import jakarta.annotation.security.PermitAll;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -53,19 +55,19 @@ public class TestBandesalApiRS {
     private String transactionId;
 
     @POST
-    @PermitAll
+    @RolesAllowed("admin")
     @Compressed
     @Path("/getReader")
     @Operation(
             operationId = "getReader",
             summary = "Get Reader",
-            description = "Busca lectores por id."
+            description = "Busca lectores por id,Lista si el id es 0 o guarda si el campo save es true"
     )
     @APIResponse(
             responseCode = "200",
-            description = "Retorna la versión actual de la applicación."
+            description = "Busca por id, Lista si el id es 0 o guarda si el campo save es true."
     )
-    public ReaderDto getAppVersion(
+    public ReaderResponseDto getAppVersion(
             @RequestBody(
                     required = true,
                     description = "Request access data.",

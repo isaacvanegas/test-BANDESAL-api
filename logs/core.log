@@ -167,3 +167,13 @@
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:842)
 
+2024-03-22 12:38:43.041|412295    |INFO |com.igroup.bandesal.core.service.web.TestBandesalApiRS|getReader
+2024-03-22 12:38:43.043|412297    |DEBUG|com.igroup.bandesal.core.operation.bandesal.ReaderOperation|get reader
+2024-03-22 12:38:52.351|421605    |INFO |com.igroup.bandesal.core.service.web.TestBandesalApiRS|getReader
+2024-03-22 12:38:52.351|421605    |DEBUG|com.igroup.bandesal.core.operation.bandesal.ReaderOperation|get reader
+2024-03-22 12:39:01.792|431046    |INFO |com.igroup.bandesal.core.service.web.TestBandesalApiRS|getReader
+2024-03-22 12:39:01.792|431046    |DEBUG|com.igroup.bandesal.core.operation.bandesal.ReaderOperation|get reader
+2024-03-22 12:39:37.838|467092    |INFO |com.igroup.bandesal.core.service.web.TestBandesalApiRS|getReader
+2024-03-22 12:39:37.838|467092    |DEBUG|com.igroup.bandesal.core.operation.bandesal.ReaderOperation|get reader
+2024-03-22 12:39:53.471|482725    |INFO |com.igroup.bandesal.core.service.web.TestBandesalApiRS|getReader
+2024-03-22 12:39:53.471|482725    |DEBUG|com.igroup.bandesal.core.operation.bandesal.ReaderOperation|get reader
