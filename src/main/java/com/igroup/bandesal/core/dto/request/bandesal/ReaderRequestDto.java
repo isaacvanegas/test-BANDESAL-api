@@ -19,25 +19,25 @@ public class ReaderRequestDto  implements Request, Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Schema(description = "Identity user.", example = "126485ikf03453")
-    Integer user_id ;
+    @Schema(description = "Identity user.", example = "11234")
+    Integer userId ;
     @Schema(description = "Id lector", example = "1")
-    String reader_id;
+    String readerId;
 
     public ReaderRequestDto() {}
 
     public ReaderRequestDto(ReaderRequestDto other) {
-        this.user_id  = other.user_id ;
-        this.reader_id = other.reader_id;
+        this.userId  = other.userId ;
+        this.readerId = other.readerId;
     }
 
-    public ReaderRequestDto withUserId(Integer user_id) {
-        this.user_id = user_id;
+    public ReaderRequestDto withUserId(Integer userId) {
+        this.userId = userId;
         return this;
     }
 
-    public ReaderRequestDto withReaderId(String reader_id) {
-        this.reader_id = reader_id;
+    public ReaderRequestDto withReaderId(String readerId) {
+        this.readerId = readerId;
         return this;
     }
 

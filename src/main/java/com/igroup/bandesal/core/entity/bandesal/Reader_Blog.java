@@ -18,10 +18,10 @@ public class Reader_Blog implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "reader_id", referencedColumnName = "id")
-    private Blog blogId;
+    private Reader readerId;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "reader_id", referencedColumnName = "id")
-    private Reader readerId;
+    @JoinColumn(name = "blog_id", referencedColumnName = "id")
+    private Blog blogId;
 
 }

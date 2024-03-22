@@ -57,9 +57,9 @@ public class TestBandesalApiRS {
     @Compressed
     @Path("/getReader")
     @Operation(
-            operationId = "getAppVersion",
-            summary = "App Version",
-            description = "Verificación de la version de la applicación movil inspecciones offline."
+            operationId = "getReader",
+            summary = "Get Reader",
+            description = "Busca lectores por id."
     )
     @APIResponse(
             responseCode = "200",
@@ -74,7 +74,7 @@ public class TestBandesalApiRS {
             ReaderRequestDto request
     ) {
         LOG.info(label.getGetReaderApi());
-        return log("APP_VERSION", () -> operationsManager
+        return log("GET_READER", () -> operationsManager
                 .getReaderOperation()
                 .execute(ReadRequestRQ.of(buildContext(), request)));
     }
