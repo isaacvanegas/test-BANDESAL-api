@@ -10,6 +10,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -24,11 +25,20 @@ public class ReaderDto implements ResponseErrors, Serializable {
     private String name;
     @Schema(description = "List of errors.")
     private List<ErrorType> error;
+
+    @Override
+    public List<ErrorType> getError() {
+        if (error == null) {
+            error = new ArrayList<>();
+        }
+        return this.error;
+    }
     public ReaderDto() {}
 
     public ReaderDto(ReaderDto other) {
         this.id = other.id;
         this.name = other.name;
+
     }
 
     public ReaderDto withId(Integer id) {
@@ -40,5 +50,7 @@ public class ReaderDto implements ResponseErrors, Serializable {
         this.name = name;
         return this;
     }
+
+
 
 }

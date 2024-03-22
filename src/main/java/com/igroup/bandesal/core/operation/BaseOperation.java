@@ -26,7 +26,7 @@ public class BaseOperation<Request extends com.igroup.bandesal.core.request.Requ
             }
             return resp;
         } catch (Exception ex) {
-            LOG.error("TrainsException", ex);
+            LOG.error("ApiException", ex);
             return getErrorResponse(ex, responseSupplier);
         }
     }
