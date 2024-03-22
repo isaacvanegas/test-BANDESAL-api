@@ -16,23 +16,14 @@ import java.util.List;
 @Data
 @XmlRootElement
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@Schema(description = "Lista de lectores.")
+@Schema(description = "Lectores.")
 @XmlAccessorType(XmlAccessType.PROPERTY)
-public class ReaderDto implements ResponseErrors, Serializable {
+public class ReaderDto implements  Serializable {
     @Schema(description = "Id lector.", example = "1")
     private Integer id;
     @Schema(description = "Nombre.", example = "ISAAC VANEGAS PÉREZ")
     private String name;
-    @Schema(description = "List of errors.")
-    private List<ErrorType> error;
 
-    @Override
-    public List<ErrorType> getError() {
-        if (error == null) {
-            error = new ArrayList<>();
-        }
-        return this.error;
-    }
     public ReaderDto() {}
 
     public ReaderDto(ReaderDto other) {

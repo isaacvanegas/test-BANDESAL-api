@@ -23,12 +23,18 @@ public class ReaderRequestDto  implements Request, Serializable {
     Integer userId ;
     @Schema(description = "Id lector", example = "1")
     String readerId;
+    @Schema(description = "Nombre lector.", example = "Isaac Vanegas Perez")
+    String name ;
+    @Schema(description = "Identifica si se debe guardar el registro.", example = "false")
+    Boolean save ;
 
     public ReaderRequestDto() {}
 
     public ReaderRequestDto(ReaderRequestDto other) {
         this.userId  = other.userId ;
         this.readerId = other.readerId;
+        this.name = other.name;
+        this.save = other.save;
     }
 
     public ReaderRequestDto withUserId(Integer userId) {
@@ -38,6 +44,16 @@ public class ReaderRequestDto  implements Request, Serializable {
 
     public ReaderRequestDto withReaderId(String readerId) {
         this.readerId = readerId;
+        return this;
+    }
+
+    public ReaderRequestDto withName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public ReaderRequestDto withSave(Boolean name) {
+        this.save = save;
         return this;
     }
 
