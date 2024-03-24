@@ -5,6 +5,7 @@ import com.igroup.bandesal.core.dto.request.security.AuthenticationRequestDto;
 import com.igroup.bandesal.core.entity.ContextData;
 import com.igroup.bandesal.core.request.bandesal.ReadRequestRQ;
 import com.igroup.bandesal.core.request.secutiry.AuthenticationRequestRQ;
+import com.igroup.bandesal.core.response.authentication.AuthenticationResponse;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
@@ -44,15 +45,14 @@ public class AuthenticationJwtRS {
             responseCode = "200",
             description = "Verifica solicitud de seccion y retorna token de autorizacion."
     )
-    public Response getJwt(
+    public AuthenticationResponse getJwt(
             @RequestBody(
                     required = true,
                     description = "Request de autenticacion.",
                     content = @Content(schema = @Schema(implementation = ReaderRequestDto.class))
             )
             AuthenticationRequestDto request) {
-        String jwt = service.generateJwt(AuthenticationRequestRQ.of(buildContext(), request));
-        return Response.ok(jwt).build();
+        return service.generateJwt(AuthenticationRequestRQ.of(buildContext(), request));
     }
 
     private ContextData buildContext() {
