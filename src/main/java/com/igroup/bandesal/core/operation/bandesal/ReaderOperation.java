@@ -1,16 +1,14 @@
 package com.igroup.bandesal.core.operation.bandesal;
 
 
-import com.igroup.bandesal.core.builder.bandesal.ReaderBuilder;
 import com.igroup.bandesal.core.builder.bandesal.ReaderResponseBuilder;
-import com.igroup.bandesal.core.dto.ReaderDto;
 import com.igroup.bandesal.core.dto.request.bandesal.ReaderRequestDto;
 import com.igroup.bandesal.core.dto.response.bandesal.ReaderResponseDto;
 import com.igroup.bandesal.core.entity.ContextData;
 import com.igroup.bandesal.core.entity.bandesal.Reader;
 import com.igroup.bandesal.core.operation.BaseOperation;
-import com.igroup.bandesal.core.repository.ReaderRepository;
-import com.igroup.bandesal.core.repository.transactional.ReaderTransactional;
+import com.igroup.bandesal.core.repository.bandesal.ReaderRepository;
+import com.igroup.bandesal.core.repository.transactional.bandesal.ReaderTransactional;
 import com.igroup.bandesal.core.request.ObjectRQ;
 import jakarta.enterprise.context.Dependent;
 import jakarta.inject.Inject;
@@ -64,9 +62,7 @@ public class ReaderOperation {
             r.setName(request.getName());
             lr.add(readerTransactional.save(r));
         }else{
-            lr =  request.getReaderId().equals("0") ?
-                    readerRepository.listAll() :
-                    readerRepository.getReaderById(request.getReaderId());
+            lr =  readerTransactional.findById(request.getReaderId());
         }
 
         return lr;
