@@ -55,8 +55,8 @@ public class TestBandesalApiRS {
     private String transactionId;
 
     @POST
-    @RolesAllowed("admin")
     @Compressed
+    @RolesAllowed("admin")
     @Path("/getReader")
     @Operation(
             operationId = "getReader",

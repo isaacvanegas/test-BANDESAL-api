@@ -35,22 +35,11 @@ public class ErrorType implements Serializable, ModelObject {
         return new ErrorType("0", "Respuesta correcta");
     }
 
-//    public static ErrorType connection() {
-//        return new ErrorType("CGEN", "Generic Conn Exception");
-//    }
-//
-//    public static ErrorType unknown(String msg) {
-//        return new ErrorType("AUNK", msg);
-//    }
-//
-//    public static ErrorType notFound(String msg) {
-//        return new ErrorType("NFND", msg);
-//    }
-//
-//    public static ErrorType notValid(String msg) {
-//        return new ErrorType("NVLD", msg);
-//    }
-//
+
+    public static ErrorType unauthorizedGenerateJWT(String msg) {
+        return new ErrorType("UGJWT", msg);
+    }
+
     public static ErrorType important(String msg) {
         return new ErrorType("EXCEPTION", msg);
     }
